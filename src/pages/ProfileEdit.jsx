@@ -28,14 +28,11 @@ export default class ProfileEdit extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.update = this.update.bind(this);
+    this.recoverUser = this.recoverUser.bind(this);
   }
 
-  async componentDidMount() {
-    const userData = await api.getUser();
-    this.setState({
-      loading: false,
-      userData,
-    });
+  componentDidMount() {
+    this.recoverUser();
   }
 
   handleChange({ target }) {
@@ -85,10 +82,20 @@ export default class ProfileEdit extends Component {
     }
   }
 
-  update() {
-    this.setState({ loading: true });
+  async recoverUser() {
+    const userData = await api.getUser();
+    this.setState({
+      loading: false,
+      userData,
+    });
+  }
+
+  async update() {
     const { newUser } = this.state;
-    api.updateUser(newUser).then(this.setState({ redirect: true }));
+    this.setState({ loading: true }, async () => {
+      await api.updateUser(newUser);
+      this.setState({ redirect: true });
+    });
   }
 
   render() {
@@ -150,7 +157,7 @@ export default class ProfileEdit extends Component {
                   />
                 </label>
                 <button
-                  type="submit"
+                  type="button"
                   data-testid="edit-button-save"
                   onClick={ this.update }
                   disabled={ !validButton }

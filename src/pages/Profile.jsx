@@ -11,9 +11,14 @@ export default class Profile extends Component {
       loading: true,
       userData: {},
     };
+    this.recoverUser = this.recoverUser.bind(this);
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.recoverUser();
+  }
+
+  async recoverUser() {
     const userData = await api.getUser();
     this.setState({
       loading: false,

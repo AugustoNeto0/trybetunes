@@ -26,20 +26,20 @@ export default class Profile extends Component {
     return (
       <div data-testid="page-profile">
         <Header />
+        <Link
+          to={ {
+            pathname: '/profile/edit',
+            state:
+                { userData },
+          } }
+        >
+          <button type="button">
+            Editar perfil
+          </button>
+        </Link>
         {
           loading ? <Loading /> : (
             <div className="profile-container">
-              <Link
-                to={ {
-                  pathname: '/profile/edit',
-                  state:
-                { userData },
-                } }
-              >
-                <button type="button">
-                  Editar perfil
-                </button>
-              </Link>
               <div className="profile-data">
                 <h3>Usuário</h3>
                 <h5>{userData.name}</h5>

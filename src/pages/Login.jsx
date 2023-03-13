@@ -3,6 +3,7 @@ import { Form, Button, Col, Row } from 'react-bootstrap';
 import { PropTypes } from 'prop-types';
 import Loading from '../components/Loading';
 import * as api from '../services/userAPI';
+import trybetunesLogo from '../img/trybetunesLogo.png';
 
 export default class Login extends Component {
   constructor() {
@@ -45,9 +46,14 @@ export default class Login extends Component {
     const { validName, loading } = this.state;
     return (
       <div
-        className="h-100 d-flex justify-content-center"
+        className="h-100 d-flex flex-column justify-content-center"
         data-testid="page-login"
       >
+        <img
+          className="primary-logo my-4"
+          src={ trybetunesLogo }
+          alt="Trybetunes Logo"
+        />
         { loading ? <Loading />
           : (
             <div

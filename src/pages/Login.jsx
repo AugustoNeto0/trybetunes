@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-// import { Redirect, Link } from 'react-router-dom';
-// import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Form, Button, Col, Row } from 'react-bootstrap';
 import { PropTypes } from 'prop-types';
 import Loading from '../components/Loading';
 import * as api from '../services/userAPI';
+import trybetunesLogo from '../img/trybetunesLogo.png';
 
 export default class Login extends Component {
   constructor() {
@@ -45,17 +45,39 @@ export default class Login extends Component {
   render() {
     const { validName, loading } = this.state;
     return (
-      <div data-testid="page-login">
+      <div
+        className="h-100 d-flex flex-column justify-content-center"
+        data-testid="page-login"
+      >
+        <img
+          className="primary-logo my-4"
+          src={ trybetunesLogo }
+          alt="Trybetunes Logo"
+        />
         { loading ? <Loading />
           : (
-            <div className="login-container">
-              <input
-                data-testid="login-name-input"
-                type="text"
-                placeholder="Insira seu nome"
-                onChange={ this.handleChange }
-              />
-              <button
+            <div
+              className="login-container d-flex align-items-center justify-content-center"
+            >
+              <Form>
+                <Row>
+                  <Col className="mx-3">
+                    <Form.Label htmlFor="inlineFormInputName" visuallyHidden>
+                      Nome
+                    </Form.Label>
+                    <Form.Control
+                      data-testid="login-name-input"
+                      type="text"
+                      id="inlineFormInputName"
+                      placeholder="Insira seu nome"
+                      onChange={ this.handleChange }
+                    />
+                  </Col>
+                </Row>
+              </Form>
+              <Button
+                className="justify-self-center"
+                variant="primary"
                 data-testid="login-submit-button"
                 name="enter-button"
                 type="button"
@@ -63,7 +85,7 @@ export default class Login extends Component {
                 disabled={ !validName }
               >
                 Entrar
-              </button>
+              </Button>
             </div>) }
       </div>
     );

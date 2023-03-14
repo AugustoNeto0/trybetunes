@@ -89,7 +89,11 @@ export default class Search extends Component {
         { loading ? <Loading /> : null }
         {
           searchResult.length === 0
-            ? <p>Nenhum álbum foi encontrado</p>
+            ? (
+              <div className="not-found-div">
+                <p className="not-found-text">Nenhum álbum foi encontrado</p>
+              </div>
+            )
             : (
               <div className="albums-container">
                 <h3>{ `Resultado de álbuns de: ${artistName}` }</h3>

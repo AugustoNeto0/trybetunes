@@ -1,16 +1,11 @@
-# 🚧 README em construção 🚧
+Projeto de um aplicativo de músicas usando API Itunes, React e Bootstrap, nele é possível acessar seu perfil, pesquisar álbums de diferentes artistas e escutar prévias de até 30 segundos, também é possível adicionar músicas a sua lista de favoritas.
 
-<!-- Olá, Tryber!
+- Para clonar o repositório:
 
-Esse é apenas um arquivo inicial para o README do seu projeto.
-
-É essencial que você preencha esse documento por conta própria, ok?
-
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
-
--->
+  1.Utilize o seguinte comando na pasta desejada `git clone git@github.com:AugustoNeto0/trybetunes.git`;
+  
+  2.Acesse o repositório clonado `cd trybetunes`;
+  
+  3.Instale as dependências `npm install`;
+  
+  4.Execute o app `npm start`.

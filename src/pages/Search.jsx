@@ -49,8 +49,7 @@ export default class Search extends Component {
     const { isButtonDisabled,
       loading,
       searchInput,
-      searchResult,
-      artistName } = this.state;
+      searchResult } = this.state;
     return (
       <div>
         <div data-testid="page-search">
@@ -96,7 +95,6 @@ export default class Search extends Component {
             )
             : (
               <div className="albums-container">
-                <h3>{ `Resultado de álbuns de: ${artistName}` }</h3>
                 { searchResult.map((album, key) => (<AlbumCard
                   key={ key }
                   albumData={ album }

@@ -75,7 +75,7 @@ export default class Search extends Component {
           </Form>
           <Button
             className="justify-self-center"
-            variant="dark"
+            variant="primary"
             name="enter-button"
             type="button"
             data-testid="search-artist-button"

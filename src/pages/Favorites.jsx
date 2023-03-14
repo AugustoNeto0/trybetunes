@@ -34,7 +34,6 @@ export default class Favorites extends Component {
   }
 
   checkFavorites(favoriteSongs) {
-    console.log(favoriteSongs);
     return favoriteSongs.length ? (
       <ul>
         {
@@ -85,5 +84,3 @@ export default class Favorites extends Component {
     );
   }
 }
-
-// <p>Adicione suas músicas favoritas para aparecer aqui!</p>

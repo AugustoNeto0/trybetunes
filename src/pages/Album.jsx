@@ -37,7 +37,7 @@ export default class Album extends Component {
     const { collectionName, artistName, id } = this.state;
     return (
       <div data-testid="page-album">
-        <Header />
+        <Header path="search" />
         <h2 data-testid="artist-name">{ artistName }</h2>
         <h3 data-testid="album-name">{ collectionName }</h3>
         <MusicCard id={ id } />

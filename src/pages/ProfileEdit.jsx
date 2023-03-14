@@ -102,7 +102,7 @@ export default class ProfileEdit extends Component {
     const { loading, userData, validButton, redirect } = this.state;
     return (
       <div data-testid="page-profile-edit">
-        <Header />
+        <Header path="profile" />
         <div>
           {
             redirect

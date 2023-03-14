@@ -9,3 +9,6 @@ Projeto de um aplicativo de músicas usando API Itunes, React e Bootstrap, nele 
   3.Instale as dependências `npm install`;
   
   4.Execute o app `npm start`.
+
+![image](https://user-images.githubusercontent.com/97979713/225112168-024a9e4e-8f56-40a9-84e7-b62c3c196d71.png)         ![image](https://user-images.githubusercontent.com/97979713/225112398-690595a6-fa5e-403e-934d-be019862e472.png)
+

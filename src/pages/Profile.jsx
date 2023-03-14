@@ -30,7 +30,7 @@ export default class Profile extends Component {
     const { loading, userData } = this.state;
     return (
       <div data-testid="page-profile">
-        <Header path="profile" />
+        <Header path="/profile" />
         <Link
           to={ {
             pathname: '/profile/edit',

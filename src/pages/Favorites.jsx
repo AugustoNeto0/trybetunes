@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
-// import MusicCard from '../components/MusicCard';
-// // import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import * as api from '../services/favoriteSongsAPI';
 
 export default class Favorites extends Component {
@@ -35,44 +33,57 @@ export default class Favorites extends Component {
     });
   }
 
+  checkFavorites(favoriteSongs) {
+    console.log(favoriteSongs);
+    return favoriteSongs.length ? (
+      <ul>
+        {
+          favoriteSongs.map((track) => (
+            <div key={ track.trackId } className="music-player-preview">
+              <h3 className="song-name">{ track.trackName }</h3>
+              <audio
+                data-testid="audio-component"
+                src={ track.previewUrl }
+                controls
+              >
+                <track kind="captions" />
+                O seu navegador não suporta o elemento
+                <code>audio</code>
+              </audio>
+              <label htmlFor="favorite-checkbox">
+                Favorita
+                <input
+                  data-testid={ `checkbox-music-${track.trackId}` }
+                  id="favorite-checkbox"
+                  type="checkbox"
+                  checked
+                  onChange={ () => this.remove(track) }
+                />
+              </label>
+            </div>
+          ))
+        }
+      </ul>
+    ) : (
+      <div className="warning-div">
+        <p className="warning-text">
+          Adicione suas músicas favoritas para aparecer aqui!
+        </p>
+      </div>
+    );
+  }
+
   render() {
     const { favoriteSongs, loading } = this.state;
     return (
       <div data-testid="page-favorites">
-        <Header path="favorites" />
+        <Header path="/favorites" />
         {
-          loading ? <Loading /> : (
-            <ul>
-              {
-                favoriteSongs.map((track) => (
-                  <div key={ track.trackId } className="music-player-preview">
-                    <h3 className="song-name">{ track.trackName }</h3>
-                    <audio
-                      data-testid="audio-component"
-                      src={ track.previewUrl }
-                      controls
-                    >
-                      <track kind="captions" />
-                      O seu navegador não suporta o elemento
-                      <code>audio</code>
-                    </audio>
-                    <label htmlFor="favorite-checkbox">
-                      Favorita
-                      <input
-                        data-testid={ `checkbox-music-${track.trackId}` }
-                        id="favorite-checkbox"
-                        type="checkbox"
-                        checked
-                        onChange={ () => this.remove(track) }
-                      />
-                    </label>
-                  </div>
-                ))
-              }
-            </ul>
-          )
+          loading ? <Loading size="" /> : this.checkFavorites(favoriteSongs)
         }
       </div>
     );
   }
 }
+
+// <p>Adicione suas músicas favoritas para aparecer aqui!</p>

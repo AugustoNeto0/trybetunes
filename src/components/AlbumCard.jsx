@@ -17,7 +17,7 @@ export default class AlbumCard extends Component {
           artistName: albumData.artistName },
         } }
       >
-        <Card className="album-card text-center m-2">
+        <Card border="secondary" className="album-card text-center m-2">
           <Card.Img
             variant="top"
             src={ albumData.artworkUrl100 }

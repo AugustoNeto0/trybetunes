@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import * as api from '../services/userAPI';
@@ -31,33 +32,31 @@ export default class Profile extends Component {
     return (
       <div data-testid="page-profile">
         <Header path="/profile" />
-        <Link
-          to={ {
-            pathname: '/profile/edit',
-            state:
-                { userData },
-          } }
-        >
-          <button type="button">
-            Editar perfil
-          </button>
-        </Link>
         {
           loading ? <Loading /> : (
             <div className="profile-container">
-              <div className="profile-data">
-                <h3>Usuário</h3>
-                <h5>{userData.name}</h5>
-                <h3>Email</h3>
-                <h5>{userData.email}</h5>
-                <h3>Descrição</h3>
-                <h5>{userData.description}</h5>
-                <img
-                  src={ userData.image }
-                  alt={ userData.name }
-                  data-testid="profile-image"
-                />
-              </div>
+              <ListGroup variant="flush">
+                <ListGroup.Item className="user-info-item">
+                  <p className="user-info-title">Usuário</p>
+                  <p className="user-info">{userData.name}</p>
+                </ListGroup.Item>
+                <ListGroup.Item className="user-info-item">
+                  <p className="user-info-title">Email</p>
+                  <p className="user-info">{userData.email}</p>
+                </ListGroup.Item>
+                <ListGroup.Item className="user-info-item">
+                  <p className="user-info-title">Descrição</p>
+                  <p className="user-info">{userData.description}</p>
+                </ListGroup.Item>
+              </ListGroup>
+              <Button
+                className="edit-button"
+                variant="light"
+                type="button"
+                href="/profile/edit"
+              >
+                Editar perfil
+              </Button>
             </div>
           )
         }

@@ -15,13 +15,11 @@ export default class ProfileEdit extends Component {
         name: '',
         email: '',
         description: '',
-        image: '',
       },
       validFormInput: {
         name: false,
         email: false,
         description: false,
-        image: false,
       },
       validButton: false,
       redirect: false,
@@ -37,7 +35,7 @@ export default class ProfileEdit extends Component {
 
   handleChange({ target }) {
     const { validFormInput, newUser } = this.state;
-    const { name, email, description, image } = validFormInput;
+    const { name, email, description } = validFormInput;
     if (target.id === 'name') {
       this.setState({ newUser: {
         ...newUser,
@@ -65,17 +63,8 @@ export default class ProfileEdit extends Component {
         ...validFormInput,
         description: true,
       } });
-    } else if (target.id === 'image') {
-      this.setState({ newUser: {
-        ...newUser,
-        image: target.value,
-      },
-      validFormInput: {
-        ...validFormInput,
-        image: true,
-      } });
     }
-    if (name && image && description && email) {
+    if (name && description && email) {
       this.setState({
         validButton: true,
       });
@@ -142,17 +131,6 @@ export default class ProfileEdit extends Component {
                     defaultValue={ userData.description }
                     type="text"
                     data-testid="edit-input-description"
-                    onChange={ this.handleChange }
-                  />
-                </label>
-                <label htmlFor="image-input">
-                  Imagem
-                  <input
-                    name="image-input"
-                    id="image"
-                    defaultValue={ userData.image }
-                    type="text"
-                    data-testid="edit-input-image"
                     onChange={ this.handleChange }
                   />
                 </label>

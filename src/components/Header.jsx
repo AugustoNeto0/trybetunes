@@ -30,23 +30,29 @@ export default class Header extends Component {
   render() {
     const { loading, userName } = this.state;
     const { path } = this.props;
+
     return (
-      <Navbar className="mb-3" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/search">
             <img
               className="secondary-logo"
               src={ trybetunesLogo }
               alt="Trybetunes Logo"
             />
           </Navbar.Brand>
-          <Nav className="me-auto" activeKey={ path }>
-            <Nav.Link href="search">Busca</Nav.Link>
-            <Nav.Link href="favorites">Favoritos</Nav.Link>
-            <Nav.Link href="profile">
-              { loading ? <Loading size="sm" /> : userName }
-            </Nav.Link>
-          </Nav>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto" activeKey={ path }>
+              <Nav.Link href="search">Busca</Nav.Link>
+              <Nav.Link href="favorites">Favoritos</Nav.Link>
+            </Nav>
+            <Nav activeKey={ path }>
+              <Nav.Link href="profile">
+                { loading ? <Loading size="sm" /> : userName }
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
     );

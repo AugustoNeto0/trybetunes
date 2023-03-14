@@ -43,7 +43,9 @@ export default class Header extends Component {
           <Nav className="me-auto" activeKey={ path }>
             <Nav.Link href="search">Busca</Nav.Link>
             <Nav.Link href="favorites">Favoritos</Nav.Link>
-            <Nav.Link href="profile">{ loading ? <Loading /> : userName }</Nav.Link>
+            <Nav.Link href="profile">
+              { loading ? <Loading size="sm" /> : userName }
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>

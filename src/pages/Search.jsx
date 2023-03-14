@@ -53,7 +53,7 @@ export default class Search extends Component {
     return (
       <div>
         <div data-testid="page-search">
-          <Header path="search" />
+          <Header path="/search" />
         </div>
         <div
           className="login-container d-flex align-items-center justify-content-center"
@@ -89,8 +89,8 @@ export default class Search extends Component {
         {
           searchResult.length === 0
             ? (
-              <div className="not-found-div">
-                <p className="not-found-text">Nenhum álbum foi encontrado</p>
+              <div className="warning-div">
+                <p className="warning-text">Nenhum álbum foi encontrado</p>
               </div>
             )
             : (

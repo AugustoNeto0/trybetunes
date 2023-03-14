@@ -44,11 +44,11 @@ export default class Header extends Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto" activeKey={ path }>
-              <Nav.Link href="search">Busca</Nav.Link>
-              <Nav.Link href="favorites">Favoritos</Nav.Link>
+              <Nav.Link href="/search">Busca</Nav.Link>
+              <Nav.Link href="/favorites">Favoritos</Nav.Link>
             </Nav>
             <Nav activeKey={ path }>
-              <Nav.Link href="profile">
+              <Nav.Link href="/profile">
                 { loading ? <Loading size="sm" /> : userName }
               </Nav.Link>
             </Nav>

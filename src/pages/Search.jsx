@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Form, Button, Col } from 'react-bootstrap';
 import AlbumCard from '../components/AlbumCard';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
@@ -48,37 +49,52 @@ export default class Search extends Component {
     const { isButtonDisabled,
       loading,
       searchInput,
-      searchResult,
-      artistName } = this.state;
+      searchResult } = this.state;
     return (
       <div>
         <div data-testid="page-search">
-          <Header />
+          <Header path="search" />
         </div>
-        <form>
-          <input
-            type="text"
-            data-testid="search-artist-input"
-            value={ searchInput }
-            placeholder="Nome Do Artista"
-            onChange={ this.handleChange }
-          />
-          <button
+        <div
+          className="login-container d-flex align-items-center justify-content-center"
+        >
+          <Form className="my-3">
+            <Col className="mx-3">
+              <Form.Label htmlFor="inlineFormInputName" visuallyHidden>
+                Nome
+              </Form.Label>
+              <Form.Control
+                data-testid="search-artist-input"
+                type="text"
+                id="inlineFormInputName"
+                value={ searchInput }
+                placeholder="Nome Do Artista"
+                onChange={ this.handleChange }
+              />
+            </Col>
+          </Form>
+          <Button
+            className="justify-self-center"
+            variant="primary"
+            name="enter-button"
             type="button"
             data-testid="search-artist-button"
             disabled={ isButtonDisabled }
             onClick={ this.handleClick }
           >
-            Pesquisar
-          </button>
-        </form>
+            Buscar
+          </Button>
+        </div>
         { loading ? <Loading /> : null }
         {
           searchResult.length === 0
-            ? <p>Nenhum álbum foi encontrado</p>
+            ? (
+              <div className="not-found-div">
+                <p className="not-found-text">Nenhum álbum foi encontrado</p>
+              </div>
+            )
             : (
               <div className="albums-container">
-                <h3>{ `Resultado de álbuns de: ${artistName}` }</h3>
                 { searchResult.map((album, key) => (<AlbumCard
                   key={ key }
                   albumData={ album }

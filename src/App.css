@@ -2,7 +2,69 @@ html, body, #root{
   height: 100%;
 }
 
-.primary-logo {
-  width: 50%;
+.album-card {
   align-self: center;
+  width: 150px;
+}
+
+.album-card img{
+  width: 100px;
+  align-self: center;
+  margin-top: 5px;
+}
+
+.album-card:hover {
+  box-shadow: 10px;
+}
+
+.albums-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  max-width: max-content;
+}
+
+.card-body {
+  height: 50px;
+}
+
+.card-title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.card-link {
+  text-decoration: none;
+  color: black;
+}
+
+.card-link:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.list-group-item {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.not-found-div {
+  justify-content: center;
+  color: gray;
+  display: flex;
+  font-style: italic;
+}
+
+.primary-logo {
+  align-self: center;
+  height: 100px;
+  width: 300px;
+}
+
+.secondary-logo {
+  align-self: center;
+  height: 25px;
+  width: 100px;
 }

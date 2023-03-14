@@ -39,7 +39,7 @@ export default class Favorites extends Component {
     const { favoriteSongs, loading } = this.state;
     return (
       <div data-testid="page-favorites">
-        <Header />
+        <Header path="favorites" />
         {
           loading ? <Loading /> : (
             <ul>

@@ -54,7 +54,7 @@ export default class Login extends Component {
           src={ trybetunesLogo }
           alt="Trybetunes Logo"
         />
-        { loading ? <Loading />
+        { loading ? <Loading size="" />
           : (
             <div
               className="login-container d-flex align-items-center justify-content-center"

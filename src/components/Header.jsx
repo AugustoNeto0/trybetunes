@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import PropTypes from 'prop-types';
 import Loading from './Loading';
 import * as api from '../services/userAPI';
+import trybetunesLogo from '../img/trybetunesLogo.png';
 
 export default class Header extends Component {
   constructor() {
@@ -25,22 +29,30 @@ export default class Header extends Component {
 
   render() {
     const { loading, userName } = this.state;
+    const { path } = this.props;
     return (
-      <header data-testid="header-component">
-        {
-          loading ? <Loading />
-            : (
-              <div className="header-container">
-                <p data-testid="header-user-name">
-                  { userName }
-                </p>
-                <Link to="/search" data-testid="link-to-search">Search</Link>
-                <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
-                <Link to="/profile" data-testid="link-to-profile">Profile</Link>
-              </div>
-            )
-        }
-      </header>
+      <Navbar className="mb-3" bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="#home">
+            <img
+              className="secondary-logo"
+              src={ trybetunesLogo }
+              alt="Trybetunes Logo"
+            />
+          </Navbar.Brand>
+          <Nav className="me-auto" activeKey={ path }>
+            <Nav.Link href="search">Busca</Nav.Link>
+            <Nav.Link href="favorites">Favoritos</Nav.Link>
+            <Nav.Link href="profile">
+              { loading ? <Loading size="sm" /> : userName }
+            </Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
     );
   }
 }
+
+Header.propTypes = {
+  path: PropTypes.string.isRequired,
+};

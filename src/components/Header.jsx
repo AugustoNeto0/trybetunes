@@ -31,7 +31,7 @@ export default class Header extends Component {
     const { loading, userName } = this.state;
     const { path } = this.props;
     return (
-      <Navbar bg="dark" variant="dark">
+      <Navbar className="mb-3" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home">
             <img
